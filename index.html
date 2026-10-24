@@ -2,32 +2,32 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Republic of Poland | Home</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-  <!-- OGP -->
-<meta property="og:title" content="ポーランド共和国 公式WEBサイト" />
-<meta property="og:description" content="ポーランド共和国はらーす鯖最大の経済大国です。" />
-<meta property="og:image" content="https://kingdomofpoland.github.io/official.github.io/header.jpg" />
-<meta property="og:url" content="https://kingdomofpoland.github.io/official.github.io/" />
-<meta property="og:type" content="website" />
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
+  <meta property="og:title" content="ポーランド共和国 公式WEBサイト" />
+  <meta property="og:description" content="ポーランド共和国はらーす鯖最大の経済大国です。" />
+  <meta property="og:image" content="https://kingdomofpoland.github.io/official.github.io/header.jpg" />
+  <meta property="og:url" content="https://kingdomofpoland.github.io/official.github.io/" />
+  <meta property="og:type" content="website" />
 </head>
 
 <body>
-  
-
-  <!-- ヒーローヘッダー -->
-  <header>
-    <h1>Republic of Poland</h1>
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Renaissance Nation</div>
+      <h1>Republic of Poland</h1>
+      <p class="subheading">秩序・自由・発展を信条とする、未来志向の大国。</p>
+      <div class="hero-actions">
+        <a href="join.html" class="button">加入する</a>
+        <a href="overview.html" class="button secondary">国家概要</a>
+      </div>
+    </div>
   </header>
-  
 
-  <!-- ナビゲーション -->
   <nav>
     <ul>
       <li><a href="index.html">ホーム</a></li>
@@ -40,78 +40,15 @@
   </nav>
 
   <main>
+    <h2>ようこそ — Republic of Poland へ</h2>
 
-    <!-- 国家紹介 -->
-    <h1>ようこそ — Republic of Polandへ</h1>
     <section>
       <p>
         Republic of Polandは、らーす鯖最大の経済国家であり、秩序・自由・発展を柱として運営されています。
         経済、法律、外交、建築に精通した多くの市民が参加し、日々国家を発展させています。
       </p>
     </section>
-    
-<script>
-async function loadNews() {
-  const repo = "republicofpoland/official.github.io"; 
-  const response = await fetch(`https://api.github.com/repos/${repo}/contents/news`);
-  const files = await response.json();
 
-  // 日付順に並べ替え（新しい順）
-  files.sort((a, b) => new Date(b.name) - new Date(a.name));
-
-  const container = document.getElementById("news-list");
-
-  for (const file of files) {
-    const mdResponse = await fetch(file.download_url);
-    const mdText = await mdResponse.text();
-
-    // フロントマター抽出
-    const frontMatterMatch = mdText.match(/^---\n([\s\S]*?)\n---/);
-    let title = "タイトル不明";
-    let date = "日付なし";
-    let body = mdText;
-
-    if (frontMatterMatch) {
-      const fm = frontMatterMatch[1];
-
-      // タイトル
-      const titleMatch = fm.match(/title:\s*(.*)/);
-      if (titleMatch) title = titleMatch[1].trim();
-
-      // 日付
-      const dateMatch = fm.match(/date:\s*(.*)/);
-      if (dateMatch) {
-        date = new Date(dateMatch[1].trim()).toLocaleDateString("ja-JP");
-      }
-
-      // YAML を本文から除去
-      body = mdText.replace(frontMatterMatch[0], "").trim();
-    }
-
-    // Markdown → HTML
-    const htmlBody = marked.parse(body);
-
-    // カードデザイン（style.css に合わせたデザイン）
-    const div = document.createElement("div");
-    div.className = "news-card";
-    div.innerHTML = `
-      <h3 style="margin: 0 0 6px; font-size: 1.4rem;">${title}</h3>
-      <p style="color:#777; margin: 0 0 12px; font-size: 0.9rem;">${date}</p>
-      <div>${htmlBody}</div>
-    `;
-
-    container.appendChild(div);
-  }
-}
-loadNews();
-</script>
-    
-<section id="news">
-    <h2>お知らせ</h2>
-    <div id="news-list"></div>
-  </section>
-
-        <!-- 3カラム：国家の特徴 -->
     <section>
       <h3>国家の特徴</h3>
       <div class="grid-3">
@@ -130,9 +67,14 @@ loadNews();
       </div>
     </section>
 
+    <section>
+      <h3>最新のお知らせ</h3>
+      <ul class="news-list">
+        <li><strong>2025/10/16:</strong> 王政から共和制へと移行しました。</li>
+      </ul>
+      <p><a href="law.html" class="button">法制度を見る</a></p>
+    </section>
 
-
-    <!-- 国家機関 -->
     <section>
       <h3>国家の主要機関</h3>
       <div class="grid-3">
@@ -151,13 +93,12 @@ loadNews();
       </div>
     </section>
 
-    <!-- 統計情報 -->
     <section>
       <h3>国家統計</h3>
       <div class="grid-3">
         <div class="stat-card">
           <h4>人口</h4>
-          <p class="stat">42名</p>
+          <p class="stat">286名</p>
         </div>
         <div class="stat-card">
           <h4>同盟国</h4>
@@ -170,14 +111,12 @@ loadNews();
       </div>
     </section>
 
-    <!-- 加入誘導 -->
     <section>
       <h3>加入してみませんか？</h3>
       <p>安定した経済圏・法整備された環境で、安全にプレイできます。</p>
       <p><a href="join.html" class="button-large">加入方法を見る</a></p>
     </section>
 
-    <!-- 外部リンク -->
     <section>
       <h3>公式リンク</h3>
       <ul>
@@ -185,14 +124,10 @@ loadNews();
         <li>外交連絡先：rearthkingdomofpoland@gmail.com</li>
       </ul>
     </section>
-
   </main>
 
   <footer>
     <p>&copy; 2025 Republic of Poland. All rights reserved.</p>
   </footer>
-  
 </body>
-
-
 </html>
