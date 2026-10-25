@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link rel="stylesheet" href="style.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>法律</title>
+  <meta name="description" content="ポーランド共和国の刑法、各種支援法、法人法などの法制度を掲載しています。" />
+  <title>法制度 | ポーランド共和国</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- ヒーローヘッダー -->
-  <header>
-    <h1>Republic of Poland</h1>
+  <header class="site-header document-header">
+    <div class="topbar">
+      <a class="brand-wrap" href="index.html">
+        <img src="flag.png" alt="ポーランド共和国の国旗" class="brand-mark" />
+        <span><span class="brand-kicker">ポーランド共和国 公式サイト</span><strong class="brand-name">ポーランド共和国</strong></span>
+      </a>
+      <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" aria-label="メインナビゲーション">
+        <a href="index.html#home">ホーム</a>
+        <a href="index.html#overview">国家理念</a>
+        <a href="index.html#news">お知らせ</a>
+        <a href="index.html#projects">事業</a>
+        <a href="index.html#history">沿革</a>
+        <a href="constitution.html">憲法</a>
+        <a href="law.html" class="is-active" aria-current="page">法制度</a>
+        <a href="index.html#contact">お問い合わせ</a>
+      </nav>
+    </div>
+    <div class="document-hero">
+      <span class="eyebrow">法律 / LEGISLATION</span>
+      <h1>法制度</h1>
+      <p>ポーランド共和国の法律・規則を掲載しています。各項目から全文を確認できます。</p>
+    </div>
   </header>
-
-  <!-- ナビゲーション -->
-  <nav>
-    <ul>
-      <li><a href="index.html">ホーム</a></li>
-      <li><a href="overview.html">国家概要</a></li>
-      <li><a href="constitution.html">憲法</a></li>
-      <li><a href="law.html">法制度</a></li>
-      <li><a href="diplomacy.html">外交</a></li>
-      <li><a href="join.html">加入方法</a></li>
-    </ul>
+  <main class="document-main document-content">
+  <nav class="document-toc" aria-label="法制度の一覧">
+    <a href="#criminal-law">刑法</a>
+    <a href="#building-support">新築建築物等への支援</a>
+    <a href="#corporations">株式会社及び法人</a>
+    <a href="#restricted-facilities">施設への立入制限</a>
+    <a href="#shops">ショップ運営関連法人</a>
+    <a href="#classified-documents">機密文書開示法</a>
   </nav>
-  <main>
 
-<section>
+<section id="criminal-law">
     <h2>刑法</h2>
 <pre>
 第1章【殺人の罪】
@@ -133,7 +153,7 @@
 </pre>
 </section>
 
-<section>
+<section id="building-support">
   <h2>新築の建築物などへの支援に関する法律</h2>
 <pre>
 第1章 総則
@@ -160,7 +180,7 @@
 </pre>
 </section>
 
-<section>
+<section id="corporations">
 <h2>株式会社及び法人に関する法律</h2>
 <pre>
   第1条（総則）
@@ -190,7 +210,7 @@
 </pre>
 </section>
 
-<section>
+<section id="restricted-facilities">
 <h2>特定の施設に立ち入ることを禁じる法律</h2>
 <pre>
 第1条（目的）
@@ -207,7 +227,7 @@
 </pre>
 </section>
 
-<section>
+<section id="shops">
 <h2>ショップ運営関連法人に関する法律</h2>
 <pre>
 第1条（総則）
@@ -217,7 +237,7 @@
 </pre>
 </section>
 
-<section>
+<section id="classified-documents">
 <h2>機密文書開示法</h2>
 <pre>
 第1章【総則】
@@ -258,6 +278,8 @@
 </section>
 
 
+  <a class="document-back" href="index.html">← トップページへ戻る</a>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>

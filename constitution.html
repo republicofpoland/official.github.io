@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>憲法 | Republic of Poland</title>
+  <meta name="description" content="ポーランド共和国憲法。国家の基本原則、市民の権利、政府機関について定めています。" />
+  <title>憲法 | ポーランド共和国</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
   <meta property="og:title" content="ポーランド共和国 憲法" />
 <meta property="og:description" content="ポーランド共和国の憲法を掲載しています。" />
 <meta property="og:image" content="https://kingdomofpoland.github.io/official.github.io/header.jpg" />
@@ -15,30 +19,54 @@
 <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
-  <header>
-    <h1>Republic of Poland</h1>
+  <header class="site-header document-header">
+    <div class="topbar">
+      <a class="brand-wrap" href="index.html">
+        <img src="flag.png" alt="ポーランド共和国の国旗" class="brand-mark" />
+        <span><span class="brand-kicker">ポーランド共和国 公式サイト</span><strong class="brand-name">ポーランド共和国</strong></span>
+      </a>
+      <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" aria-label="メインナビゲーション">
+        <a href="index.html#home">ホーム</a>
+        <a href="index.html#overview">国家理念</a>
+        <a href="index.html#news">お知らせ</a>
+        <a href="index.html#projects">事業</a>
+        <a href="index.html#history">沿革</a>
+        <a href="constitution.html" class="is-active" aria-current="page">憲法</a>
+        <a href="law.html">法制度</a>
+        <a href="index.html#contact">お問い合わせ</a>
+      </nav>
+    </div>
+    <div class="document-hero">
+      <span class="eyebrow">基本法 / CONSTITUTION</span>
+      <h1>ポーランド共和国憲法</h1>
+      <p>共和国の基本原則、国民の権利と義務、国家機関の構成を定めます。</p>
+    </div>
   </header>
-
-  <nav>
-    <ul>
-      <li><a href="index.html">ホーム</a></li>
-      <li><a href="overview.html">国家概要</a></li>
-      <li><a href="constitution.html">憲法</a></li>
-      <li><a href="law.html">法制度</a></li>
-      <li><a href="diplomacy.html">外交</a></li>
-      <li><a href="join.html">加入方法</a></li>
-    </ul>
+<main class="document-main document-content">
+  <nav class="document-toc" aria-label="憲法の章一覧">
+    <a href="#preamble">前文</a>
+    <a href="#chapter-1">第1章 総則</a>
+    <a href="#chapter-2">第2章 国民の権利及び義務</a>
+    <a href="#chapter-3">第3章 共和国大統領</a>
+    <a href="#chapter-4">第4章 国会</a>
+    <a href="#chapter-5">第5章 政府（内閣）</a>
+    <a href="#chapter-6">第6章 司法</a>
+    <a href="#chapter-7">第7章 緊急事態</a>
+    <a href="#chapter-8">第8章 軍隊</a>
+    <a href="#chapter-9">第9章 財政</a>
+    <a href="#chapter-10">第10章 地方自治</a>
+    <a href="#chapter-11">第11章 憲法改正</a>
+    <a href="#chapter-12">第12章 補則</a>
   </nav>
-<main>
-  <h2>ポーランド共和国憲法（改正版）</h2>
 
-  <section>
+  <section id="preamble">
     <h3>前文</h3>
     <p>ポーランド国民は、我らと我らの子孫のため、主権と国体を守り、自由と秩序をもたらすことを宣言し、この憲法を制定する。</p>
   </section>
 
   <section>
-    <h3>第1章 [総則]</h3>
+    <h3 id="chapter-1">第1章 [総則]</h3>
     <p><strong>第1条［政治体制］</strong><br/>
     1. ポーランド共和国は、民主共和国である。<br/>
     2. ポーランド共和国は単一国家である。</p>
@@ -52,7 +80,7 @@
   </section>
 
   <section>
-    <h3>第2章 [国民の権利及び義務]</h3>
+    <h3 id="chapter-2">第2章 [国民の権利及び義務]</h3>
 
     <p><strong>第4条［国民たる要件］</strong><br/>
     ポーランド共和国政府より承認された者を国民とする。</p>
@@ -86,7 +114,7 @@
   </section>
 
   <section>
-    <h3>第3章 [共和国大統領]</h3>
+    <h3 id="chapter-3">第3章 [共和国大統領]</h3>
 
     <p><strong>第14条［地位］</strong><br/>
     大統領は共和国の元首であり、国家の独立・領土・憲法秩序を保障する。</p>
@@ -105,7 +133,7 @@
   </section>
 
   <section>
-    <h3>第4章 [国会]</h3>
+    <h3 id="chapter-4">第4章 [国会]</h3>
 
     <p><strong>第17条［立法機関］</strong><br/>
     国会は国権の最高機関であり、立法機関である。</p>
@@ -123,7 +151,7 @@
   </section>
 
   <section>
-    <h3>第5章 [政府（内閣）]</h3>
+    <h3 id="chapter-5">第5章 [政府（内閣）]</h3>
 
     <p><strong>第21条［首相と内閣］</strong><br/>
     1. 行政権は首相及び内閣に属する。<br/>
@@ -139,7 +167,7 @@
   </section>
 
   <section>
-    <h3>第6章 [司法]</h3>
+    <h3 id="chapter-6">第6章 [司法]</h3>
 
     <p><strong>第23条［司法権］</strong><br/>
     司法権は最高裁判所及び法律の定める下級裁判所に属する。</p>
@@ -152,7 +180,7 @@
   </section>
 
   <section>
-    <h3>第7章 [緊急事態]</h3>
+    <h3 id="chapter-7">第7章 [緊急事態]</h3>
 
     <p><strong>第26条［緊急事態宣言］</strong><br/>
     国の独立、領土保全、憲法秩序が重大かつ切迫した脅威にさらされた場合、大統領は首相の同意を得て緊急事態を宣言できる。</p>
@@ -165,7 +193,7 @@
   </section>
 
   <section>
-    <h3>第8章 [軍隊]</h3>
+    <h3 id="chapter-8">第8章 [軍隊]</h3>
 
     <p><strong>第29条［軍隊の保持］</strong><br/>
     ポーランド共和国は、独立と憲法秩序を守るため国軍を保持する。</p>
@@ -175,7 +203,7 @@
   </section>
 
   <section>
-    <h3>第9章 [財政]</h3>
+    <h3 id="chapter-9">第9章 [財政]</h3>
 
     <p><strong>第31条［財政権限］</strong><br/>
     国の財政は、国会の決議に基づき処理される。</p>
@@ -185,7 +213,7 @@
   </section>
 
   <section>
-    <h3>第10章 [地方自治]</h3>
+    <h3 id="chapter-10">第10章 [地方自治]</h3>
 
     <p><strong>第33条［原則］</strong><br/>
     地方公共団体の組織及び運営は、法律でこれを定める。</p>
@@ -195,7 +223,7 @@
   </section>
 
   <section>
-    <h3>第11章 [憲法改正]</h3>
+    <h3 id="chapter-11">第11章 [憲法改正]</h3>
 
     <p><strong>第35条［改正手続］</strong><br/>
     1. 憲法改正は国会議員の3分の2以上の賛成により発議され、大統領の承認を経て成立する。<br/>
@@ -203,7 +231,7 @@
   </section>
 
   <section>
-    <h3>第12章 [補則]</h3>
+    <h3 id="chapter-12">第12章 [補則]</h3>
 
     <p><strong>第36条［施行］</strong><br/>
     この憲法は、公布の日より施行する。</p>
@@ -212,6 +240,8 @@
     この憲法施行の際、現に在職する公務員は、その地位に相応する職が認められている限り、その地位を失わない。ただし、後任者が選挙又は任命されたときは、その地位を失う。</p>
   </section>
 
+  <a class="document-back" href="index.html">← トップページへ戻る</a>
 </main>
+<script src="script.js"></script>
 </body>
 </html>
