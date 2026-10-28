@@ -40,7 +40,8 @@
         <nav class="main-nav" aria-label="Main navigation">
           <a href="#home" class="is-active">ホーム</a>
           <a href="#overview">国家理念</a>
-          <a href="#news">お知らせ</a>
+          <a href="#news">最新情報</a>
+          <a href="news.html">お知らせ一覧</a>
           <a href="#projects">事業</a>
           <a href="#history">沿革</a>
           <a href="constitution.html">憲法</a>
@@ -144,10 +145,13 @@
             <span class="section-kicker">お知らせ / 最新情報</span>
             <h2>政府発表</h2>
           </div>
-          <a href="#contact" class="inline-link">連絡先</a>
+          <a href="news.html" class="inline-link">すべてのお知らせ ↗</a>
         </div>
 
-        <div class="news-grid" id="news-grid"></div>
+        <p class="news-status" id="news-status" role="status" aria-live="polite">
+          お知らせを読み込んでいます…
+        </p>
+        <div class="news-grid" id="news-grid" data-news-limit="3" aria-busy="true"></div>
       </section>
 
       <section id="projects" class="section-wrap reveal">
@@ -232,6 +236,7 @@
           <li><a href="#home">ホーム</a></li>
           <li><a href="#overview">国家理念</a></li>
           <li><a href="#news">お知らせ</a></li>
+          <li><a href="news.html">お知らせ一覧</a></li>
           <li><a href="#projects">事業</a></li>
           <li><a href="constitution.html">憲法</a></li>
           <li><a href="law.html">法制度</a></li>
@@ -243,7 +248,7 @@
 
     <button class="scroll-top" aria-label="トップへ戻る">↑</button>
 
+    <script src="news-config.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
-
