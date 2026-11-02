@@ -1,23 +1,23 @@
 const governmentData = [
   {
     meta: '行政',
-    title: '大統領',
-    text: '大統領は国家の統治と外交方針を総括し、共和国の方向性を定めます。'
+    title: '政府',
+    text: '大統領は国家の最高責任者として、政策の方向性を示し、行政の運営を統括します。'
   },
   {
     meta: '立法',
-    title: '政府',
-    text: '各省庁の連携により、政策の実行と行政の安定を支えています。'
+    title: '議会',
+    text: '議会は国民の代表として、法律の制定と政策の監視を行い、民主的な意思決定を支えます。'
   },
   {
     meta: '外交',
-    title: '外務',
-    text: '対外関係の維持と協調を通じて、信頼ある外交関係を構築します。'
+    title: '外務省',
+    text: '外交政策の策定と国際関係の調整を通じて、共和国の国益を守ります。'
   },
   {
-    meta: '開発',
-    title: '国家事業',
-    text: 'インフラ整備と都市計画を通じて、共和国の基盤を強化しています。'
+    meta: '経済政策',
+    title: '商務省',
+    text: '国内外の経済活動を促進し、持続可能な成長を支える政策を実施します。'
   }
 ];
 
@@ -25,22 +25,23 @@ const projectData = [
   {
     meta: 'インフラ',
     title: '鉄道網の近代化',
-    text: '交通アクセスと全国的な結びつきを強めるための整備計画です。'
+    text: '交通アクセスと全国的な結びつきを強めるための整備計画です。',
+    image: 'photo/tetudou.png',
+    imageAlt: '鉄道網の近代化'
   },
   {
     meta: '都市設計',
     title: '首都地区の再整備',
-    text: '公共空間と秩序ある景観を重視した都市計画の進行です。'
-  },
-  {
-    meta: '公共事業',
-    title: '国営インフラの拡張',
-    text: '国全体の生活基盤を支える設備の整備と維持を進めています。'
+    text: '公共空間と秩序ある景観を重視した都市計画の進行です。',
+    image: 'photo/tosisekkei.png',
+    imageAlt: '首都地区の再整備'
   },
   {
     meta: '市民参加',
     title: '市民参加型施策',
-    text: '市民の声と透明性を重視した制度づくりを進めています。'
+    text: '市民の声と透明性を重視した制度づくりを進めています。',
+    image: 'photo/kokkai.png',
+    imageAlt: '市民参加'
   }
 ];
 
@@ -217,7 +218,7 @@ function renderNewsItems(target, items, showReadMore) {
   const expandableContents = [];
 
   items.forEach((item) => {
-    const article = document.createElement('article');
+    const article = document.createElement(showReadMore ? 'article' : 'details');
     article.className = 'news-item';
 
     const date = document.createElement('time');
@@ -225,16 +226,18 @@ function renderNewsItems(target, items, showReadMore) {
     date.dateTime = item.date ? item.date.toISOString().slice(0, 10) : '';
     date.textContent = formatNewsDate(item.date, item.rawDate);
 
-    const title = document.createElement('h3');
+    const title = document.createElement(showReadMore ? 'h3' : 'summary');
     title.className = 'news-item-title';
-    title.textContent = item.title;
+    const titleText = document.createElement('span');
+    titleText.textContent = item.title;
 
     const content = document.createElement('p');
     content.className = 'news-item-content';
     content.textContent = item.content;
 
-    article.append(date, title, content);
     if (showReadMore) {
+      title.append(titleText);
+      article.append(date, title, content);
       const readMore = document.createElement('button');
       readMore.className = 'news-read-more';
       readMore.type = 'button';
@@ -246,6 +249,9 @@ function renderNewsItems(target, items, showReadMore) {
       });
       article.append(readMore);
       expandableContents.push({ content, readMore });
+    } else {
+      title.append(date, titleText);
+      article.append(title, content);
     }
 
     fragment.append(article);
@@ -371,7 +377,9 @@ function renderProjects() {
     .map(
       (item, index) => `
         <article class="project-card">
-          <div class="project-visual" aria-hidden="true"></div>
+          <div class="project-visual">
+            <img class="project-image" src="${item.image}" alt="${item.imageAlt}" />
+          </div>
           <div class="project-body">
             <span class="meta">${item.meta}</span>
             <h3>${item.title}</h3>
@@ -403,16 +411,19 @@ function renderTimeline() {
 function setupNavigation() {
   const nav = document.querySelector('.main-nav');
   const toggle = document.querySelector('.nav-toggle');
+  const header = toggle?.closest('.site-header');
 
-  if (toggle && nav) {
+  if (toggle && nav && header) {
     toggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('is-open');
+      header.classList.toggle('menu-open', isOpen);
       toggle.setAttribute('aria-expanded', String(isOpen));
     });
 
     nav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         nav.classList.remove('is-open');
+        header.classList.remove('menu-open');
         toggle.setAttribute('aria-expanded', 'false');
       });
     });

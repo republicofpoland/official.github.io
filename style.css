@@ -55,7 +55,7 @@ button {
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(6, 6, 6, 0.88), rgba(22, 10, 10, 0.78)),
-    url("header.jpg") center/cover no-repeat;
+    url("photo/header.jpg") center/cover no-repeat;
   border-bottom: 1px solid var(--line);
 }
 
@@ -457,7 +457,7 @@ button {
 
 .news-item {
   display: grid;
-  grid-template-columns: minmax(140px, 0.3fr) 1fr;
+  grid-template-columns: minmax(140px, 0.3fr) minmax(0, 1fr);
   column-gap: clamp(20px, 5vw, 72px);
   padding: 25px 12px;
   border-bottom: 1px solid var(--line);
@@ -484,15 +484,67 @@ button {
 
 .news-item-title {
   grid-column: 2;
+  min-width: 0;
   margin: 0 0 7px;
   font-size: clamp(1.15rem, 2vw, 1.5rem);
   letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+.news-grid[data-news-limit="all"] .news-item-title {
+  position: relative;
+  display: block;
+  grid-column: 1 / -1;
+  padding-right: 30px;
+  margin: 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.news-grid[data-news-limit="all"] .news-item-title > span {
+  display: block;
+}
+
+.news-grid[data-news-limit="all"] .news-item-title::-webkit-details-marker {
+  display: none;
+}
+
+.news-grid[data-news-limit="all"] .news-item-title::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: var(--accent-strong);
+  transform: translateY(-50%);
+}
+
+.news-grid[data-news-limit="all"] .news-item[open] > .news-item-title::after {
+  content: "−";
+}
+
+.news-grid[data-news-limit="all"] .news-item-title:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 4px;
+}
+
+.news-grid[data-news-limit="all"] .news-item-date,
+.news-grid[data-news-limit="all"] .news-item-content {
+  grid-column: 1 / -1;
+  grid-row: auto;
+}
+
+.news-grid[data-news-limit="all"] .news-item-date {
+  flex: 0 0 auto;
+  padding-top: 0;
 }
 
 .news-item-content {
   grid-column: 2;
+  min-width: 0;
   margin: 0;
   color: var(--muted);
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
 }
 
 .news-grid[data-news-limit="3"] .news-item-content {
@@ -551,6 +603,13 @@ button {
   background:
     linear-gradient(145deg, rgba(185, 28, 28, 0.12), rgba(255, 255, 255, 0.03)),
     linear-gradient(120deg, #1a1a1a, #292929);
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-visual::before,
@@ -985,6 +1044,10 @@ button {
 }
 
 @media (max-width: 720px) {
+  .site-header.menu-open {
+    overflow: visible;
+  }
+
   .topbar {
     align-items: flex-start;
     padding-top: 16px;
@@ -997,9 +1060,13 @@ button {
   .main-nav {
     display: none;
     position: absolute;
-    top: 78px;
+    top: calc(100% + 8px);
     right: 16px;
     left: 16px;
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 18px 14px;
     background: rgba(18, 18, 18, 0.96);
     border: 1px solid var(--line);
